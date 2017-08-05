@@ -8,8 +8,6 @@ import seaborn as sns
 sns.set_style('whitegrid')  # Give nice white background with grid
 from datetime import datetime
 
-
-
 tech_list = ['AAPL','GOOG','MSFT','AMZN']
 end = datetime.now()
 
