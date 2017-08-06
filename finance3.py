@@ -13,7 +13,7 @@ end = datetime.now()
 
 start = datetime(end.year-1,end.month,end.day)
 for stock in tech_list:
-    globals()[stock] = web.DataReader("NASDAQ:TSLA", "google", start, end)
+    globals()[stock] = web.DataReader(stock, "google", start, end)
 
 ma_day = [10, 20, 50]
 
