@@ -56,5 +56,21 @@ AAPL = main_df[['AAPL']]
 AAPL.reset_index(inplace=True)
 #make list into a series
 RSI_list2=Series(RSI_list2)
+RSI_list2.rename('RSI',inplace=True)
 #merge
 result=pd.concat([AAPL,RSI_list2],axis=1)
+result=result.set_index('Date')
+result.drop('AAPL',axis=1,inplace=True)
+print(result)
+ax3=result[13:].plot(kind='line')
+ax3.set_title('{} 14 day RSI'.format('Apple'))
+plt.axhline(y=30,xmin=0,xmax=3,c="red",linewidth=1,zorder=1)
+plt.axhline(y=70,xmin=0,xmax=3,c="red",linewidth=1,zorder=1)
+ax3.annotate('Test',
+             xy=(result[240],37),
+             xytext=(15, 15),
+             textcoords=result,
+             arrowprops=dict(arrowstyle='-|>'))
+
+
+plt.show()
